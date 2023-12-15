@@ -1,5 +1,4 @@
-import java.io.IOException;
-import java.nio.file.Path;
+
 import java.util.*;
 
 public class Main {
@@ -10,7 +9,8 @@ public class Main {
         CityUtils.initialize(cityList);
 //        CityUtils.sortByName(cityList);
 //        CityUtils.sortByDistrictAndName(cityList);
-        CityUtils.mostPopulation(cityList);
+//        CityUtils.mostPopulation(cityList);
+        CityUtils.countCityInDistrict(cityList);
     }
 
 }

@@ -1,9 +1,7 @@
 import java.io.IOException;
 import java.nio.file.Path;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class CityUtils {
     public static void initialize(List<City> cityList) {
@@ -46,11 +44,19 @@ public class CityUtils {
 
         int index = 0;
         for (int i = 0; i < cityArray.length; i++) {
-            if(cityArray[i]==maxPopulation){
+            if (cityArray[i] == maxPopulation) {
                 index = i;
             }
 
         }
-        System.out.println("[" +index + "] = "+ maxPopulation  );
+        System.out.println("[" + index + "] = " + maxPopulation);
+    }
+
+    public static void countCityInDistrict(List<City> cityList) {
+        Map<String, Integer> mapCity = cityList.stream().collect
+                (Collectors.toMap(City::getDistrict,city -> 1,Integer::sum));
+
+        mapCity.forEach((key,value)->System.out.printf("%s - %d%n",key,value));
+
     }
 }

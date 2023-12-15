@@ -2,20 +2,20 @@ public class City {
     private int id;
     private String name;
     private String region;
-    private String distinct;
+    private String district;
     private int population;
     private String foundation;
 
-    public City(int id, String name, String region, String distinct, int population) {
+    public City(int id, String name, String region, String district, int population) {
         this.id = id;
         this.name = name;
         this.region = region;
-        this.distinct = distinct;
+        this.district = district;
         this.population = population;
     }
 
     public String toString() {
-        return "City{name='" + this.name + "', region='" + this.region + "', distinct='" + this.distinct + "', population=" + this.population + ", foundation='" + this.foundation + "'}";
+        return "City{name='" + this.name + "', region='" + this.region + "', district='" + this.district + "', population=" + this.population + ", foundation='" + this.foundation + "'}";
     }
 
     public int getId() {
@@ -42,12 +42,12 @@ public class City {
         this.region = region;
     }
 
-    public String getDistinct() {
-        return this.distinct;
+    public String getDistrict() {
+        return this.district;
     }
 
-    public void setDistinct(String distinct) {
-        this.distinct = distinct;
+    public void setDistrict(String district) {
+        this.district = district;
     }
 
     public int getPopulation() {

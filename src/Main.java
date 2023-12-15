@@ -9,6 +9,12 @@ public class Main {
 
     public static void main(String[] args) {
         List<City> cityList = new ArrayList<>();
+        initialize(cityList);
+        sortByName(cityList);
+        sortByDistrictAndName(cityList);
+    }
+
+    public static void initialize(List<City> cityList) {
         try (Scanner scanner = new Scanner(Path.of(".\\Задача ВС Java Сбер.txt"))) {
             City city;
             while (scanner.hasNext()) {
@@ -22,10 +28,22 @@ public class Main {
                 }
                 cityList.add(city);
             }
-            cityList.forEach(System.out::println);
+
         } catch (IOException e) {
             System.out.println("IOException");
         }
+    }
 
+    public static void sortByName(List<City> cityList) {
+        cityList.stream().sorted((city1, city2) -> city1.getName().compareTo(city2.getName())).forEach(System.out::println);
+    }
+
+    public static void sortByDistrictAndName(List<City> cityList) {
+        cityList.stream().sorted((city1, city2) -> {
+            if (city1.getDistrict().compareTo(city2.getDistrict()) == 0) {
+                return city1.getName().compareTo(city2.getName());
+            }
+            return city1.getDistrict().compareTo(city2.getDistrict());
+        }).forEach(System.out::println);
     }
 }
